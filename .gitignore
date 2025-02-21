@@ -4,3 +4,4 @@ data/
 *.json
 *.txt
 *.docx
+__pycache__/
