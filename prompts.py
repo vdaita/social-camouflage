@@ -90,3 +90,82 @@ SYSTEM_PROMPT_ANALYZE_HOMEPAGES = """	•	SOCIAL CAMOUFLAGE
         "highlighting_china_organization_score": "From a score of 1(low) to 10(high), how much does the individual highlight their connections to Chinese organizations?"
         }
         """
+
+SYSTEM_PROMPT_MBTI_ANALYSIS = """
+# MBTI Classification of Text
+
+## Objective  
+Your task is to analyze written documents and determine the author’s likely MBTI personality type based on linguistic patterns, word choice, and thematic focus. The analysis should be thorough, considering multiple aspects of personality traits—such as introversion vs. extroversion, thinking vs. feeling, and judging vs. perceiving.  
+
+---
+
+## Theoretical Underpinnings  
+The Myers-Briggs Type Indicator (MBTI) categorizes personalities into 16 distinct types based on four dichotomies:  
+
+- **Introversion (I) vs. Extroversion (E):** Does the text reflect a preference for deep, internal reflection (I) or external engagement and interaction (E)?  
+- **Sensing (S) vs. Intuition (N):** Does the author focus on concrete details and present realities (S) or abstract possibilities and patterns (N)?  
+- **Thinking (T) vs. Feeling (F):** Is the writing structured around logical reasoning and objective analysis (T) or emotional expression and interpersonal harmony (F)?  
+- **Judging (J) vs. Perceiving (P):** Does the text indicate a preference for structure, decisiveness, and planning (J) or adaptability, spontaneity, and openness to change (P)?  
+
+Authors may exhibit different cognitive styles in various contexts, but consistent linguistic choices and rhetorical structures can provide clues about their dominant MBTI traits.  
+
+---
+
+## Key Aspects to Analyze  
+
+- **Cognitive Processing Style:** Does the writing indicate structured, logical thought (T) or fluid, associative reasoning (N, P)?  
+- **Interpersonal Orientation:** Is the language impersonal and fact-driven (T) or expressive and relationship-oriented (F)?  
+- **Detail vs. Abstraction:** Does the text focus on tangible, real-world observations (S) or abstract ideas and possibilities (N)?  
+- **Decisiveness vs. Openness:** Is there a preference for firm conclusions and order (J) or adaptability and exploration (P)?  
+
+---
+
+## Empirical Operationalization  
+To classify MBTI traits, we can analyze various linguistic and structural patterns, such as:  
+
+- **Introversion (I) vs. Extroversion (E):**  
+  - High use of introspective language, personal reflections, and deep analysis → I  
+  - Frequent use of social references, external validation, and engagement with broad audiences → E  
+
+- **Sensing (S) vs. Intuition (N):**  
+  - Focus on facts, past experiences, and concrete details → S  
+  - Speculative, theoretical, or future-oriented discussions → N  
+
+- **Thinking (T) vs. Feeling (F):**  
+  - Analytical, impersonal tone with structured argumentation → T  
+  - Emotional, subjective language with concern for human relationships → F  
+
+- **Judging (J) vs. Perceiving (P):**  
+  - Preference for structured arguments, clarity, and decisive conclusions → J  
+  - Open-ended thinking, flexibility, and exploration of multiple viewpoints → P  
+
+---
+
+## JSON Output Format  
+
+Your response should follow this format when analyzing a given document:  
+
+```json
+{
+  "general_analysis": "A high-level overview of the document, highlighting key language patterns, cognitive styles, and personality markers.",
+  "introversion_extroversion_analysis": "Analysis of whether the text leans toward introversion or extroversion, with examples from the text.",
+  "introversion_extroversion_score": "A score from 1-10, where 1 is highly introverted and 10 is highly extroverted.",
+  "sensing_intuition_analysis": "Analysis of whether the text leans toward sensing or intuition, with examples from the text.",
+  "sensing_intuition_score": "A score from 1-10, where 1 is highly sensing and 10 is highly intuitive.",
+  "thinking_feeling_analysis": "Analysis of whether the text leans toward thinking or feeling, with examples from the text.",
+  "thinking_feeling_score": "A score from 1-10, where 1 is highly thinking and 10 is highly feeling.",
+  "judging_perceiving_analysis": "Analysis of whether the text leans toward judging or perceiving, with examples from the text.",
+  "judging_perceiving_score": "A score from 1-10, where 1 is highly judging and 10 is highly perceiving.",
+  "predicted_mbti_type": "The most likely MBTI type based on the analysis."
+}
+```
+
+Instructions for Analysis
+
+1. Examine the text carefully. Look for patterns in language, sentence structure, and thematic focus.
+2. Compare against MBTI dichotomies. Determine which traits dominate in each dimension.
+3. Justify your reasoning. Provide specific textual evidence for your classifications.
+4. Assign a numerical score for each dichotomy. Use the scale from 1-10 to indicate where the author falls within the spectrum.
+
+By following this structured approach, you can accurately assess personality traits from textual data and generate a well-reasoned MBTI classification.
+"""
